@@ -1,84 +1,115 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Musa Loan Application</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
-        .container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h2 { text-align: center; }
-        input, textarea, button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover { background-color: #218838; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Musa Loan Application</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #219150;
+    }
+    .note {
+      font-size: 13px;
+      color: #555;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Musa Student Loan Application</h2>
-        <form action="https://formspree.io/f/xeqyzkgo" method="POST" id="loanForm">
-            <input type="text" name="name" placeholder="Full Name" required />
-            <input type="text" name="studentNumber" placeholder="Student Number" required />
-            <input type="text" name="phone" placeholder="Phone Number" required />
-            <input type="number" name="amount" placeholder="Loan Amount (M200 - M500)" required min="200" max="500" />
-            <input type="text" name="signature" placeholder="Signature" required />
-            <textarea readonly rows="6">
-Loan Terms:
-- Loan Amount: M200–M500
-- Repayment Period: 1 month
-- Interest: 25%
-- Late Payment: 7% penalty for 2 days late, then full 25% again
-- Required Documents: National ID, Bank Card, NMDS or Manpower Contract
-- Repayment Methods: M-Pesa or Bank Transfer
-- Contact: +26659486640 (WhatsApp & Calls), +26659892141 (Calls), musasolomon341@gmail.com (24/7)
-            </textarea>
-            <button type="submit">Submit Application</button>
-        </form>
-        <button onclick="downloadPDF()">📄 Export as PDF</button>
-    </div>
+  <div class="container">
+    <h2>Musa Student Loan Application</h2>
+    <form action="https://formspree.io/f/xeokeezb" method="POST" id="loanForm">
+      <label for="full_name">Full Name</label>
+      <input type="text" id="full_name" name="full_name" required>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script>
-        async function downloadPDF() {
-            const {{ jsPDF }} = window.jspdf;
-            const doc = new jsPDF();
+      <label for="student_number">Student Number</label>
+      <input type="text" id="student_number" name="student_number" required>
 
-            const name = document.querySelector('[name="name"]').value;
-            const studentNumber = document.querySelector('[name="studentNumber"]').value;
-            const phone = document.querySelector('[name="phone"]').value;
-            const amount = document.querySelector('[name="amount"]').value;
-            const signature = document.querySelector('[name="signature"]').value;
+      <label for="phone_number">Phone Number</label>
+      <input type="tel" id="phone_number" name="phone_number" required>
 
-            let content = `Musa Loan Application\n\n` +
-                          `Name: ${name}\n` +
-                          `Student Number: ${studentNumber}\n` +
-                          `Phone: ${phone}\n` +
-                          `Loan Amount: M${amount}\n` +
-                          `Signature: ${signature}\n\n` +
-                          `Loan Terms Accepted:\n` +
-                          `- Amount: M200–M500\n` +
-                          `- Repayment: 1 month\n` +
-                          `- Interest: 25%\n` +
-                          `- Late Penalty: 7% after 2 days, then 25% again\n` +
-                          `- Documents: National ID, Bank Card, NMDS/Manpower\n` +
-                          `- Payment: M-Pesa or Bank\n` +
-                          `- Contact: +26659486640 / +26659892141\n`;
+      <label for="loan_amount">Loan Amount (M200–M500)</label>
+      <input type="number" id="loan_amount" name="loan_amount" min="200" max="500" required>
 
-            doc.text(content, 10, 10);
-            doc.save(`Loan_Application_${studentNumber}.pdf`);
-        }
-    </script>
+      <label for="documents">Required Documents (checklist or uploaded proof)</label>
+      <textarea id="documents" name="documents" rows="3" placeholder="NMDS/Manpower Contract, National ID, Bank Card" required></textarea>
+
+      <p class="note">
+        🔒 By submitting, you agree to the following:<br>
+        • Loan range: M200 to M500 per person<br>
+        • Repay after 1 month with 25% interest<br>
+        • Late penalty: 7% if within 2 days; 25% again after that<br>
+        • Repayment via M-Pesa or Bank<br>
+        • Available 24/7 — Contact: +26659486640 (WhatsApp/Call), +26659892141 (Call) or musasolomon341@gmail.com
+      </p>
+
+      <button type="submit">Submit Application</button>
+      <button type="button" id="exportBtn">Download PDF Copy</button>
+    </form>
+  </div>
+
+  <!-- JS LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    document.getElementById("exportBtn").addEventListener("click", function () {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      const name = document.getElementById("full_name").value;
+      const student = document.getElementById("student_number").value;
+      const phone = document.getElementById("phone_number").value;
+      const amount = document.getElementById("loan_amount").value;
+      const documents = document.getElementById("documents").value;
+
+      doc.setFontSize(14);
+      doc.text("Musa Student Loan Application", 20, 20);
+      doc.text("Name: " + name, 20, 30);
+      doc.text("Student Number: " + student, 20, 40);
+      doc.text("Phone Number: " + phone, 20, 50);
+      doc.text("Loan Amount: M" + amount, 20, 60);
+      doc.text("Documents: " + documents, 20, 70);
+      doc.text("Policies Accepted: YES", 20, 80);
+      doc.save("Loan_Application.pdf");
+    });
+  </script>
 </body>
 </html>
