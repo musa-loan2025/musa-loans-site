@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Musa Loan Application</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
+        .container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h2 { text-align: center; }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Musa Student Loan Application</h2>
+        <form action="https://formspree.io/f/xeqyzkgo" method="POST" id="loanForm">
+            <input type="text" name="name" placeholder="Full Name" required />
+            <input type="text" name="studentNumber" placeholder="Student Number" required />
+            <input type="text" name="phone" placeholder="Phone Number" required />
+            <input type="number" name="amount" placeholder="Loan Amount (M200 - M500)" required min="200" max="500" />
+            <input type="text" name="signature" placeholder="Signature" required />
+            <textarea readonly rows="6">
+Loan Terms:
+- Loan Amount: M200–M500
+- Repayment Period: 1 month
+- Interest: 25%
+- Late Payment: 7% penalty for 2 days late, then full 25% again
+- Required Documents: National ID, Bank Card, NMDS or Manpower Contract
+- Repayment Methods: M-Pesa or Bank Transfer
+- Contact: +26659486640 (WhatsApp & Calls), +26659892141 (Calls), musasolomon341@gmail.com (24/7)
+            </textarea>
+            <button type="submit">Submit Application</button>
+        </form>
+        <button onclick="downloadPDF()">📄 Export as PDF</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        async function downloadPDF() {
+            const {{ jsPDF }} = window.jspdf;
+            const doc = new jsPDF();
+
+            const name = document.querySelector('[name="name"]').value;
+            const studentNumber = document.querySelector('[name="studentNumber"]').value;
+            const phone = document.querySelector('[name="phone"]').value;
+            const amount = document.querySelector('[name="amount"]').value;
+            const signature = document.querySelector('[name="signature"]').value;
+
+            let content = `Musa Loan Application\n\n` +
+                          `Name: ${name}\n` +
+                          `Student Number: ${studentNumber}\n` +
+                          `Phone: ${phone}\n` +
+                          `Loan Amount: M${amount}\n` +
+                          `Signature: ${signature}\n\n` +
+                          `Loan Terms Accepted:\n` +
+                          `- Amount: M200–M500\n` +
+                          `- Repayment: 1 month\n` +
+                          `- Interest: 25%\n` +
+                          `- Late Penalty: 7% after 2 days, then 25% again\n` +
+                          `- Documents: National ID, Bank Card, NMDS/Manpower\n` +
+                          `- Payment: M-Pesa or Bank\n` +
+                          `- Contact: +26659486640 / +26659892141\n`;
+
+            doc.text(content, 10, 10);
+            doc.save(`Loan_Application_${studentNumber}.pdf`);
+        }
+    </script>
+</body>
+</html>
