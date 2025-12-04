@@ -1,121 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Musa Student Loan Application</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      padding: 20px;
-    }
-    .container {
-      background: white;
-      padding: 25px;
-      max-width: 700px;
-      margin: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    label {
-      display: block;
-      margin-top: 15px;
-    }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      margin-top: 20px;
-      padding: 12px;
-      width: 100%;
-      background: #2ecc71;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #27ae60;
-    }
-    .note {
-      font-size: 14px;
-      color: #333;
-      margin-top: 20px;
-    }
-    ul {
-      margin-top: 5px;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Musa Poster Designs</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f3f3f3;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background: #1e3a8a;
+    color: white;
+    padding: 30px;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 32px;
+  }
+  header p {
+    margin-top: 5px;
+    font-size: 16px;
+  }
+  .container {
+    max-width: 780px;
+    background: white;
+    margin: 35px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  label {
+    font-weight: bold;
+    margin-top: 18px;
+    display: block;
+  }
+  input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 6px;
+    font-size: 15px;
+  }
+  button {
+    width: 100%;
+    padding: 16px;
+    background: #2563eb;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    margin-top: 30px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #1e40af;
+  }
+  footer {
+    text-align: center;
+    padding: 25px;
+    color: #444;
+    font-size: 14px;
+  }
+</style>
 </head>
+
 <body>
-  <div class="container" id="formSection">
-    <h2>Musa Student Loan Application</h2>
-    <form action="https://formspree.io/f/xeokeezb" method="POST" id="loanForm">
-      <label for="full_name">Full Name</label>
-      <input type="text" id="full_name" name="full_name" required>
 
-      <label for="student_number">Student Number</label>
-      <input type="text" id="student_number" name="student_number" required>
+<header>
+  <h1>Musa Poster Designs</h1>
+  <p>Professional • Fast • Affordable</p>
+</header>
 
-      <label for="phone_number">Phone Number</label>
-      <input type="tel" id="phone_number" name="phone_number" required>
+<div class="container">
+  <h2>Poster Design Request Form</h2>
 
-      <label for="loan_amount">Loan Amount (M200–M500)</label>
-      <input type="number" id="loan_amount" name="loan_amount" min="200" max="500" required>
+  <form action="https://formsubmit.co/musasolomon341@gmail.com" method="POST" enctype="multipart/form-data">
 
-      <p class="note">
-        ✅ By submitting this form, you confirm that you have read and accepted the Musa Loan policies:
-        <ul>
-          <li>Loan range: M200 to M500 per person</li>
-          <li>Repay after 1 month with 25% interest</li>
-          <li>Late penalty: 7% if delayed by 2 days; after that, another 25% is charged</li>
-          <li>Repayment methods: M-Pesa or Bank</li>
-          <li>We do <strong>not</strong> accept scanned or soft copies of documents</li>
-        </ul>
-        📌 Required Original Documents (to be brought in person):
-        <ul>
-          <li>National Identity Card</li>
-          <li>Bank Card</li>
-          <li>NMDS or Manpower Contract</li>
-        </ul>
-        📞 Contact: +26659486640 (WhatsApp & Call), +26659892141 (Call Only) <br>
-        ✉️ Email: musasolomon341@gmail.com | 🕒 Service: 24/7, Monday to Sunday
-      </p>
+    <label>Full Name</label>
+    <input type="text" name="Full Name" required />
 
-      <button type="submit">Submit Application</button>
-      <button type="button" id="downloadPDF">Download PDF Copy</button>
+    <label>WhatsApp Number</label>
+    <input type="text" name="WhatsApp Number" required />
 
-      <p class="note">
-        📍 <strong>After you apply:</strong> Contact us via WhatsApp with your full name and student number as proof of application.
-      </p>
-    </form>
-  </div>
+    <label>Email (optional)</label>
+    <input type="email" name="Client Email" />
 
-  <!-- PDF Export Script -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script>
-    document.getElementById("downloadPDF").addEventListener("click", () => {
-      const form = document.getElementById("formSection");
-      html2canvas(form).then(canvas => {
-        const imgData = canvas.toDataURL("image/png");
-        const pdf = new jspdf.jsPDF("p", "mm", "a4");
-        const width = pdf.internal.pageSize.getWidth();
-        const height = (canvas.height * width) / canvas.width;
-        pdf.addImage(imgData, "PNG", 0, 0, width, height);
-        pdf.save("Musa_Loan_Application.pdf");
-      });
-    });
-  </script>
+    <label>Type of Poster</label>
+    <select name="Poster Type" required>
+      <option value="Birthday Poster">Birthday Poster</option>
+      <option value="Business Poster">Business Poster</option>
+      <option value="Event Poster">Event Poster</option>
+      <option value="Funeral Poster">Funeral Poster</option>
+      <option value="Church Poster">Church Poster</option>
+      <option value="School Poster">School Poster</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label>Poster Title (Main Heading)</label>
+    <input type="text" name="Poster Title" placeholder="Example: Happy Birthday, Company Name, Event Title" required />
+
+    <label>Poster Details</label>
+    <textarea name="Poster Details" rows="5" placeholder="Write all needed information for your poster" required></textarea>
+
+    <label>Upload Photo(s) for Poster (optional)</label>
+    <input type="file" name="Poster Photos" multiple />
+
+    <label>Preferred Colours (optional)</label>
+    <input type="text" name="Poster Colours" placeholder="Example: Gold + Black, Blue + White" />
+
+    <label>Deadline (optional)</label>
+    <input type="text" name="Design Deadline" placeholder="Example: Today, Tomorrow, This Weekend" />
+
+    <!-- Hidden FormSubmit Settings -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_subject" value="NEW POSTER APPLICATION - Musa Designs">
+    <input type="hidden" name="_pdf" value="true">
+    <input type="hidden" name="_next" value="https://musa-loan2025.github.io/musa-loans-site/success.html">
+
+    <button type="submit">Submit Poster Request</button>
+  </form>
+
+</div>
+
+<footer>
+  © 2025 Musa Poster Designs — All Rights Reserved
+</footer>
+
 </body>
-</html>
+        </html>
