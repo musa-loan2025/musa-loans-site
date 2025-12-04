@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logo Application Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; background:#f5f5f5; padding:20px; }
+        .container { max-width:600px; margin:auto; background:white; padding:20px; border-radius:10px; }
+        h2 { text-align:center; }
+        label { font-weight:bold; display:block; margin-top:15px; }
+        input, select, textarea { width:100%; padding:10px; margin-top:5px; border-radius:5px; border:1px solid #ccc; }
+        button { margin-top:20px; width:100%; padding:15px; background:#3182ce; color:white; font-size:16px; border:none; border-radius:8px; cursor:pointer; }
+        button:hover { background:#2563eb; }
+        .optional { color:#777; font-size:14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Logo Request / Client Registration</h2>
+
+        <form action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST" enctype="multipart/form-data">
+
+            <!-- Client Details -->
+            <label>Your Full Name</label>
+            <input type="text" name="client_name" required>
+
+            <label>Your WhatsApp Number</label>
+            <input type="text" name="whatsapp" required>
+
+            <label>Email Address (optional)</label>
+            <input type="email" name="email">
+
+            <label>Type of Service</label>
+            <select name="service_type" required>
+                <option value="Loan Application">Loan Application</option>
+                <option value="Logo Design">Logo Design</option>
+                <option value="Poster Design">Poster Design</option>
+            </select>
+
+            <!-- Logo Section Optional -->
+            <label>Logo Name (optional)</label>
+            <input type="text" name="logo_name" placeholder="Name to appear on the logo">
+
+            <label>Logo Description (optional)</label>
+            <textarea name="logo_description" rows="4" placeholder="Describe the logo you want"></textarea>
+
+            <label>Upload Sample or Idea (optional)</label>
+            <input type="file" name="logo_file">
+
+            <!-- Hidden Settings -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_subject" value="New Client / Logo Application">
+            <input type="hidden" name="_next" value="https://your-site-link/success.html">
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+</body>
+</html>
