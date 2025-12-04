@@ -1,141 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Musa Poster Designs</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poster Design Application</title>
 
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f3f3f3;
-    margin: 0;
-    padding: 0;
-  }
-  header {
-    background: #1e3a8a;
-    color: white;
-    padding: 30px;
-    text-align: center;
-  }
-  header h1 {
-    margin: 0;
-    font-size: 32px;
-  }
-  header p {
-    margin-top: 5px;
-    font-size: 16px;
-  }
-  .container {
-    max-width: 780px;
-    background: white;
-    margin: 35px auto;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  label {
-    font-weight: bold;
-    margin-top: 18px;
-    display: block;
-  }
-  input, textarea, select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-top: 6px;
-    font-size: 15px;
-  }
-  button {
-    width: 100%;
-    padding: 16px;
-    background: #2563eb;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-size: 18px;
-    margin-top: 30px;
-    cursor: pointer;
-  }
-  button:hover {
-    background: #1e40af;
-  }
-  footer {
-    text-align: center;
-    padding: 25px;
-    color: #444;
-    font-size: 14px;
-  }
-</style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background: #222;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            max-width: 600px;
+            background: white;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #00000020;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: 1px solid #bbb;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #222;
+            border: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #000;
+        }
+
+        .note {
+            font-size: 13px;
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Musa Poster Designs</h1>
-  <p>Professional • Fast • Affordable</p>
-</header>
+    <div class="header">
+        <h1>Poster Design Application</h1>
+        <p>Fill the form below to request a poster</p>
+    </div>
 
-<div class="container">
-  <h2>Poster Design Request Form</h2>
+    <div class="container">
 
-  <form action="https://formsubmit.co/musasolomon341@gmail.com" method="POST" enctype="multipart/form-data">
+        <form action="https://formsubmit.co/musasolomon341@gmail.com" 
+              method="POST" enctype="multipart/form-data">
 
-    <label>Full Name</label>
-    <input type="text" name="Full Name" required />
+            <!-- SECURITY + SETTINGS -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New Poster Application">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://musa-loan2025.github.io/musa-loans-site/success.html">
 
-    <label>WhatsApp Number</label>
-    <input type="text" name="WhatsApp Number" required />
+            <label>Full Name</label>
+            <input type="text" name="Full Name" required>
 
-    <label>Email (optional)</label>
-    <input type="email" name="Client Email" />
+            <label>WhatsApp Number</label>
+            <input type="text" name="WhatsApp Number" required>
 
-    <label>Type of Poster</label>
-    <select name="Poster Type" required>
-      <option value="Birthday Poster">Birthday Poster</option>
-      <option value="Business Poster">Business Poster</option>
-      <option value="Event Poster">Event Poster</option>
-      <option value="Funeral Poster">Funeral Poster</option>
-      <option value="Church Poster">Church Poster</option>
-      <option value="School Poster">School Poster</option>
-      <option value="Other">Other</option>
-    </select>
+            <label>Email (optional)</label>
+            <input type="email" name="Client Email">
 
-    <label>Poster Title (Main Heading)</label>
-    <input type="text" name="Poster Title" placeholder="Example: Happy Birthday, Company Name, Event Title" required />
+            <label>Poster Type</label>
+            <select name="Poster Type" required>
+                <option value="">Select Poster Type</option>
+                <option>Birthday Poster</option>
+                <option>Funeral Poster</option>
+                <option>Graduation Poster</option>
+                <option>Business Poster</option>
+                <option>Event Poster</option>
+                <option>School Poster</option>
+                <option>Other (describe below)</option>
+            </select>
 
-    <label>Poster Details</label>
-    <textarea name="Poster Details" rows="5" placeholder="Write all needed information for your poster" required></textarea>
+            <label>Poster Description</label>
+            <textarea name="Poster Description" rows="4" placeholder="Explain your poster details..." required></textarea>
 
-    <label>Upload Photo(s) for Poster (optional)</label>
-    <input type="file" name="Poster Photos" multiple />
+            <label>Upload PDF / Images (optional)</label>
+            <input type="file" name="attachment" accept="application/pdf,image/*">
 
-    <label>Preferred Colours (optional)</label>
-    <input type="text" name="Poster Colours" placeholder="Example: Gold + Black, Blue + White" />
+            <p class="note">Supported files: PDF, JPG, PNG</p>
 
-    <label>Deadline (optional)</label>
-    <input type="text" name="Design Deadline" placeholder="Example: Today, Tomorrow, This Weekend" />
+            <button type="submit">Submit Application</button>
 
-    <!-- Hidden FormSubmit Settings -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_subject" value="NEW POSTER APPLICATION - Musa Designs">
-    <input type="hidden" name="_pdf" value="true">
-    <input type="hidden" name="_next" value="https://musa-loan2025.github.io/musa-loans-site/success.html">
-
-    <button type="submit">Submit Poster Request</button>
-  </form>
-
-</div>
-
-<footer>
-  © 2025 Musa Poster Designs — All Rights Reserved
-</footer>
-
+        </form>
+    </div>
 </body>
-        </html>
+</html>
